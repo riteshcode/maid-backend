@@ -1,0 +1,2908 @@
+{
+	"info": {
+		"_postman_id": "eb36b9a5-17ce-4471-bf7d-630844348fa9",
+		"name": "Maid Hive - NodeJS - API",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json",
+		"_exporter_id": "22266759"
+	},
+	"item": [
+		{
+			"name": "API",
+			"item": []
+		},
+		{
+			"name": "ADMIN - API",
+			"item": [
+				{
+					"name": "User - CRUD",
+					"item": [
+						{
+							"name": "User Store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"name\": \"Johdn Doe\",\r\n    \"email\": \"joh3ds5n@example.com\",\r\n    \"mobile\": \"98734543210\",\r\n    \"password\": \"password123\",\r\n    \"status\": \"Active\",\r\n    \"stdatus\": \"Active\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/users/store",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users",
+										"store"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Validation response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Johdn Doe\",\r\n    \"email\": \"joh3ds5n@example.com\",\r\n    \"mobile\": \"98734543210\",\r\n    \"password\": \"password123\",\r\n    \"status\": \"Active\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users/store",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"store"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "223"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"df-ySiUvF+M9nF9lApwTskN+QWGopE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 07 Mar 2025 10:36:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"joh3ds5n@example.com\",\n            \"msg\": \"Email already exist\",\n            \"path\": \"email\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": \"98734543210\",\n            \"msg\": \"Mobile already exist\",\n            \"path\": \"mobile\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "Success response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Johdnd Doe\",\r\n    \"email\": \"joh3eds5n@example.com\",\r\n    \"mobile\": \"88734543210\",\r\n    \"password\": \"password123\",\r\n    \"status\": \"Active\",\r\n    \"stdatus\": \"Active\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users/store",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"store"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "334"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14e-dRfxUBSaniVDNE9Mmv6r21bbE/8\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 07 Mar 2025 10:37:10 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"name\": \"Johdnd Doe\",\n        \"email\": \"joh3eds5n@example.com\",\n        \"mobile\": \"88734543210\",\n        \"password\": \"password123\",\n        \"status\": \"Active\",\n        \"isDeleted\": false,\n        \"deletedAt\": null,\n        \"_id\": \"67cacc56c1d81b7bcbe9e593\",\n        \"createdAt\": \"2025-03-07T10:37:10.131Z\",\n        \"updatedAt\": \"2025-03-07T10:37:10.131Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "User Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n   \"name\": \"Johdn Doe\",\r\n    \"email\": \"joh3ds5n@example.com\",\r\n    \"mobile\": \"9873454321\",\r\n    \"password\": \"password123\",\r\n    \"status\": \"Inactive\",\r\n    \"isDeleted\": true\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/users/67cacb8313192a05ef4fbcff",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users",
+										"67cacb8313192a05ef4fbcff"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Validation response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Johdn Doe\",\r\n    \"email\": \"joh3ds5n@example.com\",\r\n    \"mobile\": \"98734543210\",\r\n    \"password\": \"password123\",\r\n    \"status\": \"Active\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users/store",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"store"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "223"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"df-ySiUvF+M9nF9lApwTskN+QWGopE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 07 Mar 2025 10:36:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"joh3ds5n@example.com\",\n            \"msg\": \"Email already exist\",\n            \"path\": \"email\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": \"98734543210\",\n            \"msg\": \"Mobile already exist\",\n            \"path\": \"mobile\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"name\": \"Johdn Doe\",\r\n    \"email\": \"joh3ds5n@example.com\",\r\n    \"mobile\": \"9873454321\",\r\n    \"password\": \"password123\",\r\n    \"status\": \"Inactive\",\r\n    \"isDeleted\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users/67cacb8313192a05ef4fbcff",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"67cacb8313192a05ef4fbcff"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "318"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"13e-/htu8EJzBADvy319z2+za1SByJ4\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 09:15:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User updated successfully\",\n    \"user\": {\n        \"_id\": \"67cacb8313192a05ef4fbcff\",\n        \"name\": \"Johdn Doe\",\n        \"email\": \"joh3ds5n@example.com\",\n        \"mobile\": \"9873454321\",\n        \"password\": \"password123\",\n        \"status\": \"Inactive\",\n        \"isDeleted\": true,\n        \"deletedAt\": null,\n        \"createdAt\": \"2025-03-07T10:33:39.468Z\",\n        \"updatedAt\": \"2025-03-11T09:15:14.059Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "User Status Change",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"Inactive\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/users/67d018a3f3ae20ae46266ef3",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users",
+										"67d018a3f3ae20ae46266ef3"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Validation response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Johdn Doe\",\r\n    \"email\": \"joh3ds5n@example.com\",\r\n    \"mobile\": \"98734543210\",\r\n    \"password\": \"password123\",\r\n    \"status\": \"Active\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users/store",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"store"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "223"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"df-ySiUvF+M9nF9lApwTskN+QWGopE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 07 Mar 2025 10:36:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"joh3ds5n@example.com\",\n            \"msg\": \"Email already exist\",\n            \"path\": \"email\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": \"98734543210\",\n            \"msg\": \"Mobile already exist\",\n            \"path\": \"mobile\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"name\": \"Johdn Doe\",\r\n    \"email\": \"joh3ds5n@example.com\",\r\n    \"mobile\": \"9873454321\",\r\n    \"password\": \"password123\",\r\n    \"status\": \"Inactive\",\r\n    \"isDeleted\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users/67cacb8313192a05ef4fbcff",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"67cacb8313192a05ef4fbcff"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "318"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"13e-/htu8EJzBADvy319z2+za1SByJ4\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 09:15:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User updated successfully\",\n    \"user\": {\n        \"_id\": \"67cacb8313192a05ef4fbcff\",\n        \"name\": \"Johdn Doe\",\n        \"email\": \"joh3ds5n@example.com\",\n        \"mobile\": \"9873454321\",\n        \"password\": \"password123\",\n        \"status\": \"Inactive\",\n        \"isDeleted\": true,\n        \"deletedAt\": null,\n        \"createdAt\": \"2025-03-07T10:33:39.468Z\",\n        \"updatedAt\": \"2025-03-11T09:15:14.059Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "User List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/users?page=1&limit=10&status=Inactive&search=user194",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "status",
+											"value": "Inactive"
+										},
+										{
+											"key": "search",
+											"value": "user194"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Permission denied due to token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"page\":1,\r\n    \"limit\":20\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "42"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2a-j0Fa6/tpvuMvoV3JxNgdUcszbpI\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 08:02:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": false,\n    \"message\": \"Access denied\"\n}"
+								},
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"page\":1,\r\n    \"limit\":20\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "601"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"259-/Z03PQ5OcEeFQ9u3yVry5wn1z2s\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 10:14:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"User list\",\n    \"data\": {\n        \"totalUsers\": 2,\n        \"totalPages\": 1,\n        \"currentPage\": 1,\n        \"users\": [\n            {\n                \"id\": \"67cacc56c1d81b7bcbe9e593\",\n                \"name\": \"Johdnd Doe\",\n                \"email\": \"joh3eds5n@example.com\",\n                \"mobile\": \"88734543210\",\n                \"status\": \"Active\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2025-03-07T10:37:10.131Z\",\n                \"updatedAt\": \"2025-03-07T10:37:10.131Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": \"67caca8e13192a05ef4fbcf1\",\n                \"name\": \"Johdn Doe\",\n                \"email\": \"johdsin@example.com\",\n                \"mobile\": \"98743543210\",\n                \"status\": \"Active\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2025-03-07T10:29:34.386Z\",\n                \"updatedAt\": \"2025-03-11T09:16:33.666Z\",\n                \"deletedAt\": \"2025-03-11T09:16:33.665Z\"\n            }\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "View User",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/users/67caca8e13192a05ef4fbcf1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users",
+										"67caca8e13192a05ef4fbcf1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Permission denied due to token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"page\":1,\r\n    \"limit\":20\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "42"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2a-j0Fa6/tpvuMvoV3JxNgdUcszbpI\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 08:02:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": false,\n    \"message\": \"Access denied\"\n}"
+								},
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/admin/users/67caca8e13192a05ef4fbcf1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"67caca8e13192a05ef4fbcf1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "330"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14a-AMwJ17H3/v+a11iO4a+uBFzOBcw\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 08:59:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"_id\": \"67caca8e13192a05ef4fbcf1\",\n        \"name\": \"Johdn Doe\",\n        \"email\": \"johdsn@example.com\",\n        \"mobile\": \"98743543210\",\n        \"password\": \"password123\",\n        \"status\": \"Active\",\n        \"isDeleted\": false,\n        \"deletedAt\": null,\n        \"createdAt\": \"2025-03-07T10:29:34.386Z\",\n        \"updatedAt\": \"2025-03-07T10:29:34.386Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete User - Softdelete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/users/67caca8e13192a05ef4fbcf1",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users",
+										"67caca8e13192a05ef4fbcf1"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/admin/users/67caca8e13192a05ef4fbcf1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"67caca8e13192a05ef4fbcf1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "330"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14a-JqxVkl5lHQMZxWpU4PHES0+ithk\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 09:16:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User soft deleted\",\n    \"user\": {\n        \"_id\": \"67caca8e13192a05ef4fbcf1\",\n        \"name\": \"Johdn Doe\",\n        \"email\": \"johdsin@example.com\",\n        \"mobile\": \"98743543210\",\n        \"password\": \"password123\",\n        \"status\": \"Active\",\n        \"isDeleted\": true,\n        \"deletedAt\": \"2025-03-11T09:16:33.665Z\",\n        \"createdAt\": \"2025-03-07T10:29:34.386Z\",\n        \"updatedAt\": \"2025-03-11T09:16:33.666Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Restore Delete User - Softdelete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/users/67c802013957efb4478915da/restore",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"users",
+										"67c802013957efb4478915da",
+										"restore"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Permission denied due to token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"page\":1,\r\n    \"limit\":20\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "42"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2a-j0Fa6/tpvuMvoV3JxNgdUcszbpI\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 08:02:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": false,\n    \"message\": \"Access denied\"\n}"
+								},
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/admin/users/67caca8e13192a05ef4fbcf1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"67caca8e13192a05ef4fbcf1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "330"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14a-AMwJ17H3/v+a11iO4a+uBFzOBcw\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 08:59:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"_id\": \"67caca8e13192a05ef4fbcf1\",\n        \"name\": \"Johdn Doe\",\n        \"email\": \"johdsn@example.com\",\n        \"mobile\": \"98743543210\",\n        \"password\": \"password123\",\n        \"status\": \"Active\",\n        \"isDeleted\": false,\n        \"deletedAt\": null,\n        \"createdAt\": \"2025-03-07T10:29:34.386Z\",\n        \"updatedAt\": \"2025-03-07T10:29:34.386Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Cleaners - CRUD",
+					"item": [
+						{
+							"name": "Cleaners List",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/cleaners?page=1&limit=10&status=Inactive&search=user194",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaners"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "10"
+										},
+										{
+											"key": "status",
+											"value": "Inactive"
+										},
+										{
+											"key": "search",
+											"value": "user194"
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Permission denied due to token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"page\":1,\r\n    \"limit\":20\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "42"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2a-j0Fa6/tpvuMvoV3JxNgdUcszbpI\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 08:02:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": false,\n    \"message\": \"Access denied\"\n}"
+								},
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"page\":1,\r\n    \"limit\":20\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "601"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"259-/Z03PQ5OcEeFQ9u3yVry5wn1z2s\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 10:14:39 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"User list\",\n    \"data\": {\n        \"totalUsers\": 2,\n        \"totalPages\": 1,\n        \"currentPage\": 1,\n        \"users\": [\n            {\n                \"id\": \"67cacc56c1d81b7bcbe9e593\",\n                \"name\": \"Johdnd Doe\",\n                \"email\": \"joh3eds5n@example.com\",\n                \"mobile\": \"88734543210\",\n                \"status\": \"Active\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2025-03-07T10:37:10.131Z\",\n                \"updatedAt\": \"2025-03-07T10:37:10.131Z\",\n                \"deletedAt\": null\n            },\n            {\n                \"id\": \"67caca8e13192a05ef4fbcf1\",\n                \"name\": \"Johdn Doe\",\n                \"email\": \"johdsin@example.com\",\n                \"mobile\": \"98743543210\",\n                \"status\": \"Active\",\n                \"isDeleted\": false,\n                \"createdAt\": \"2025-03-07T10:29:34.386Z\",\n                \"updatedAt\": \"2025-03-11T09:16:33.666Z\",\n                \"deletedAt\": \"2025-03-11T09:16:33.665Z\"\n            }\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Cleaners Store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Jofhn Doe\",\r\n  \"email\": \"john.fdoe@example.com\",\r\n  \"mobile\": \"9876343210\",\r\n  \"password\": \"securepassword\",\r\n  \"profileImage\": \"https://example.com/profile.jpg\",\r\n  \"rating\": 4.5,\r\n  \"hourlyRate\": 25,\r\n  \"address\": \"123 Main Street\",\r\n  \"state\": \"California\",\r\n  \"city\": \"Los Angeles\",\r\n  \"country\": \"USA\",\r\n  \"zipcode\": \"90001\",\r\n  \"latitude\": \"34.0522\",\r\n  \"longitude\": \"-118.2437\",\r\n  \"availability\": true,\r\n  \"services\": [\"Deep Cleaning\", \"Carpet Cleaning\"],\r\n  \"backgroundChecked\": true,\r\n  \"status\": \"Active\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/cleaners/store",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaners",
+										"store"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Validate Response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"mobile\": \"9876543210\",\r\n  \"password\": \"securepassword\",\r\n  \"profileImage\": \"https://example.com/profile.jpg\",\r\n  \"rating\": 4.5,\r\n  \"hourlyRate\": 25,\r\n  \"address\": \"123 Main Street\",\r\n  \"state\": \"California\",\r\n  \"city\": \"Los Angeles\",\r\n  \"country\": \"USA\",\r\n  \"zipcode\": \"90001\",\r\n  \"latitude\": \"34.0522\",\r\n  \"longitude\": \"-118.2437\",\r\n  \"availability\": true,\r\n  \"services\": [\"Deep Cleaning\", \"Carpet Cleaning\"],\r\n  \"backgroundChecked\": true,\r\n  \"status\": \"Active\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/cleaners/store",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"cleaners",
+												"store"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "278"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"116-mThXV+aX7OdWgB1CjVX+yIUDhOg\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 13:10:05 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": false,\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"john.doe@example.com\",\n            \"msg\": \"Email already exist\",\n            \"path\": \"email\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": \"9876543210\",\n            \"msg\": \"Mobile already exist\",\n            \"path\": \"mobile\",\n            \"location\": \"body\"\n        }\n    ],\n    \"message\": \"Validation error\",\n    \"data\": null\n}"
+								},
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Jofhn Doe\",\r\n  \"email\": \"john.fdoe@example.com\",\r\n  \"mobile\": \"9876343210\",\r\n  \"password\": \"securepassword\",\r\n  \"profileImage\": \"https://example.com/profile.jpg\",\r\n  \"rating\": 4.5,\r\n  \"hourlyRate\": 25,\r\n  \"address\": \"123 Main Street\",\r\n  \"state\": \"California\",\r\n  \"city\": \"Los Angeles\",\r\n  \"country\": \"USA\",\r\n  \"zipcode\": \"90001\",\r\n  \"latitude\": \"34.0522\",\r\n  \"longitude\": \"-118.2437\",\r\n  \"availability\": true,\r\n  \"services\": [\"Deep Cleaning\", \"Carpet Cleaning\"],\r\n  \"backgroundChecked\": true,\r\n  \"status\": \"Active\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/cleaners/store",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"cleaners",
+												"store"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "596"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"254-kmurDM5W7FJLf+EYgKl17Shc3Sg\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 13:10:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Cleaner created successfully\",\n    \"data\": {\n        \"id\": \"67d036401eeb7e21d181d7d8\",\n        \"name\": \"Jofhn Doe\",\n        \"email\": \"john.fdoe@example.com\",\n        \"mobile\": \"9876343210\",\n        \"profileImage\": \"https://example.com/profile.jpg\",\n        \"rating\": 4.5,\n        \"hourlyRate\": 25,\n        \"address\": {\n            \"street\": \"123 Main Street\",\n            \"city\": \"Los Angeles\",\n            \"state\": \"California\",\n            \"country\": \"USA\",\n            \"zipcode\": \"90001\",\n            \"latitude\": \"34.0522\",\n            \"longitude\": \"-118.2437\"\n        },\n        \"availability\": true,\n        \"services\": [\n            \"Deep Cleaning\",\n            \"Carpet Cleaning\"\n        ],\n        \"backgroundChecked\": true,\n        \"status\": \"Active\",\n        \"createdAt\": \"2025-03-11T13:10:24.743Z\",\n        \"updatedAt\": \"2025-03-11T13:10:24.743Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Cleaners Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"mobile\": \"9876543210\",\r\n  \"password\": \"securepassword\",\r\n  \"profileImage\": \"https://example.com/profile.jpg\",\r\n  \"rating\": 4.5,\r\n  \"hourlyRate\": 25,\r\n  \"address\": \"123 Main Street\",\r\n  \"state\": \"California\",\r\n  \"city\": \"Los Angeles\",\r\n  \"country\": \"USA\",\r\n  \"zipcode\": \"90001\",\r\n  \"latitude\": \"34.0522\",\r\n  \"longitude\": \"-118.2437\",\r\n  \"availability\": true,\r\n  \"services\": [\"Deep Cleaning\", \"Carpet Cleaning\"],\r\n  \"backgroundChecked\": true,\r\n  \"status\": \"Active\"\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/cleaners/67d035ce1eeb7e21d181d7d0",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaners",
+										"67d035ce1eeb7e21d181d7d0"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"John Doe\",\r\n  \"email\": \"john.doe@example.com\",\r\n  \"mobile\": \"9876543210\",\r\n  \"password\": \"securepassword\",\r\n  \"profileImage\": \"https://example.com/profile.jpg\",\r\n  \"rating\": 4.5,\r\n  \"hourlyRate\": 25,\r\n  \"address\": \"123 Main Street\",\r\n  \"state\": \"California\",\r\n  \"city\": \"Los Angeles\",\r\n  \"country\": \"USA\",\r\n  \"zipcode\": \"90001\",\r\n  \"latitude\": \"34.0522\",\r\n  \"longitude\": \"-118.2437\",\r\n  \"availability\": true,\r\n  \"services\": [\"Deep Cleaning\", \"Carpet Cleaning\"],\r\n  \"backgroundChecked\": true,\r\n  \"status\": \"Active\"\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/cleaners/67d035ce1eeb7e21d181d7d0",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"cleaners",
+												"67d035ce1eeb7e21d181d7d0"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "594"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"252-TNv/SyKcUs+yKkuNF2XaUmdbPN0\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 13:10:51 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Cleaner updated successfully\",\n    \"data\": {\n        \"id\": \"67d035ce1eeb7e21d181d7d0\",\n        \"name\": \"John Doe\",\n        \"email\": \"john.doe@example.com\",\n        \"mobile\": \"9876543210\",\n        \"profileImage\": \"https://example.com/profile.jpg\",\n        \"rating\": 4.5,\n        \"hourlyRate\": 25,\n        \"address\": {\n            \"street\": \"123 Main Street\",\n            \"city\": \"Los Angeles\",\n            \"state\": \"California\",\n            \"country\": \"USA\",\n            \"zipcode\": \"90001\",\n            \"latitude\": \"34.0522\",\n            \"longitude\": \"-118.2437\"\n        },\n        \"availability\": true,\n        \"services\": [\n            \"Deep Cleaning\",\n            \"Carpet Cleaning\"\n        ],\n        \"backgroundChecked\": true,\n        \"status\": \"Active\",\n        \"createdAt\": \"2025-03-11T13:08:30.770Z\",\n        \"updatedAt\": \"2025-03-11T13:10:51.885Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Cleaners Status Change",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"Inactive\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/cleaners/67d035ce1eeb7e21d181d7d0",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaners",
+										"67d035ce1eeb7e21d181d7d0"
+									]
+								}
+							},
+							"response": []
+						},
+						{
+							"name": "View Cleaners",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/cleaners/67d035ce1eeb7e21d181d7d0",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaners",
+										"67d035ce1eeb7e21d181d7d0"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/admin/cleaners/67d035ce1eeb7e21d181d7d0",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"cleaners",
+												"67d035ce1eeb7e21d181d7d0"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "593"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"251-uphVG9yVtJ2d5GJ1dGjI0zKnylA\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 13:12:30 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Cleaner view successfully\",\n    \"data\": {\n        \"id\": \"67d035ce1eeb7e21d181d7d0\",\n        \"name\": \"John Doe\",\n        \"email\": \"john.doe@example.com\",\n        \"mobile\": \"9876543210\",\n        \"profileImage\": \"https://example.com/profile.jpg\",\n        \"rating\": 4.5,\n        \"hourlyRate\": 25,\n        \"address\": {\n            \"street\": \"123 Main Street\",\n            \"city\": \"Los Angeles\",\n            \"state\": \"California\",\n            \"country\": \"USA\",\n            \"zipcode\": \"90001\",\n            \"latitude\": \"34.0522\",\n            \"longitude\": \"-118.2437\"\n        },\n        \"availability\": true,\n        \"services\": [\n            \"Deep Cleaning\",\n            \"Carpet Cleaning\"\n        ],\n        \"backgroundChecked\": true,\n        \"status\": \"Inactive\",\n        \"createdAt\": \"2025-03-11T13:08:30.770Z\",\n        \"updatedAt\": \"2025-03-11T13:12:12.099Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Delete Cleaners - Softdelete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/cleaners/67d035ce1eeb7e21d181d7d0",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaners",
+										"67d035ce1eeb7e21d181d7d0"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/admin/cleaners/67d035ce1eeb7e21d181d7d0",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"cleaners",
+												"67d035ce1eeb7e21d181d7d0"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "588"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"24c-+lEQ5D4/2Z9APsekex3Rd1vCZ+s\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 13:13:00 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Cleaner soft deleted\",\n    \"data\": {\n        \"id\": \"67d035ce1eeb7e21d181d7d0\",\n        \"name\": \"John Doe\",\n        \"email\": \"john.doe@example.com\",\n        \"mobile\": \"9876543210\",\n        \"profileImage\": \"https://example.com/profile.jpg\",\n        \"rating\": 4.5,\n        \"hourlyRate\": 25,\n        \"address\": {\n            \"street\": \"123 Main Street\",\n            \"city\": \"Los Angeles\",\n            \"state\": \"California\",\n            \"country\": \"USA\",\n            \"zipcode\": \"90001\",\n            \"latitude\": \"34.0522\",\n            \"longitude\": \"-118.2437\"\n        },\n        \"availability\": true,\n        \"services\": [\n            \"Deep Cleaning\",\n            \"Carpet Cleaning\"\n        ],\n        \"backgroundChecked\": true,\n        \"status\": \"Inactive\",\n        \"createdAt\": \"2025-03-11T13:08:30.770Z\",\n        \"updatedAt\": \"2025-03-11T13:13:00.518Z\"\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Restore Delete Cleaners - Softdelete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/cleaners/67d035ce1eeb7e21d181d7d0/restore",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaners",
+										"67d035ce1eeb7e21d181d7d0",
+										"restore"
+									]
+								}
+							},
+							"response": []
+						}
+					]
+				},
+				{
+					"name": "Cleaning Service - CRUD",
+					"item": [
+						{
+							"name": "Cleaning Service List",
+							"protocolProfileBehavior": {
+								"disableBodyPruning": true
+							},
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/cleaning-service?page=1&limit=20",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaning-service"
+									],
+									"query": [
+										{
+											"key": "page",
+											"value": "1"
+										},
+										{
+											"key": "limit",
+											"value": "20"
+										},
+										{
+											"key": "search",
+											"value": "Deep",
+											"disabled": true
+										}
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Permission denied due to token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"page\":1,\r\n    \"limit\":20\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "42"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2a-j0Fa6/tpvuMvoV3JxNgdUcszbpI\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 08:02:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": false,\n    \"message\": \"Access denied\"\n}"
+								},
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/cleaning-service?page=1&limit=20",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"cleaning-service"
+											],
+											"query": [
+												{
+													"key": "page",
+													"value": "1"
+												},
+												{
+													"key": "limit",
+													"value": "20"
+												},
+												{
+													"key": "search",
+													"value": "Deep",
+													"disabled": true
+												}
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "820"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"334-ppGzS6G0CBBD3WAoRyMvz7VYyq0\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 12:11:59 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Cleaning service list\",\n    \"data\": {\n        \"totalRecords\": 2,\n        \"totalPages\": 1,\n        \"currentPage\": 1,\n        \"records\": [\n            {\n                \"id\": \"67d027f4e13a3684ee6c2293\",\n                \"name\": \"Deep Cleaning\",\n                \"description\": \"A thorough cleaning of the entire house.\",\n                \"bestFor\": [\n                    \"Spring cleaning\",\n                    \"Before moving in\"\n                ],\n                \"includes\": [\n                    \"Kitchen cleaning\",\n                    \"Bathroom sanitization\",\n                    \"Floor scrubbing\"\n                ],\n                \"frequency\": \"One Time\",\n                \"price\": 5000,\n                \"createdAt\": \"2025-03-11T12:09:24.752Z\",\n                \"updatedAt\": \"2025-03-11T12:09:24.752Z\"\n            },\n            {\n                \"id\": \"67d027b6e13a3684ee6c2291\",\n                \"name\": \"Deep Cleaning\",\n                \"description\": \"A thorough cleaning of the entire house.\",\n                \"bestFor\": [\n                    \"Spring cleaning\",\n                    \"Before moving in\"\n                ],\n                \"includes\": [\n                    \"Kitchen cleaning\",\n                    \"Bathroom sanitization\",\n                    \"Floor scrubbing\"\n                ],\n                \"frequency\": \"One Time\",\n                \"price\": 5000,\n                \"createdAt\": \"2025-03-11T12:08:22.405Z\",\n                \"updatedAt\": \"2025-03-11T12:08:22.405Z\"\n            }\n        ]\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Cleaning Service Store",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "POST",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Deep Cleaning\",\r\n  \"description\": \"A thorough cleaning of the entire house.\",\r\n  \"bestFor\": [\"Spring cleaning\", \"Before moving in\"],\r\n  \"includes\": [\"Kitchen cleaning\", \"Bathroom sanitization\", \"Floor scrubbing\"],\r\n  \"frequency\": \"One Time\",\r\n  \"price\": 5000\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/cleaning-service/store",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaning-service",
+										"store"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Deep Cleaning\",\r\n  \"description\": \"A thorough cleaning of the entire house.\",\r\n  \"bestFor\": [\"Spring cleaning\", \"Before moving in\"],\r\n  \"includes\": [\"Kitchen cleaning\", \"Bathroom sanitization\", \"Floor scrubbing\"],\r\n  \"frequency\": \"One Time\",\r\n  \"price\": 5000\r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/cleaning-service/store",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"cleaning-service",
+												"store"
+											]
+										}
+									},
+									"status": "Created",
+									"code": 201,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "423"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"1a7-Q/cwZTDNldr4j//CCCwxw4HEsFk\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 12:09:24 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"Cleaning service created successfully\",\n    \"data\": {\n        \"id\": \"67d027f4e13a3684ee6c2293\",\n        \"name\": \"Deep Cleaning\",\n        \"description\": \"A thorough cleaning of the entire house.\",\n        \"bestFor\": [\n            \"Spring cleaning\",\n            \"Before moving in\"\n        ],\n        \"includes\": [\n            \"Kitchen cleaning\",\n            \"Bathroom sanitization\",\n            \"Floor scrubbing\"\n        ],\n        \"frequency\": \"One Time\",\n        \"price\": 5000,\n        \"createdAt\": \"2025-03-11T12:09:24.752Z\",\n        \"updatedAt\": \"2025-03-11T12:09:24.752Z\"\n    }\n}"
+								},
+								{
+									"name": "Validation response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n  \"name\": \"Deep Cleaning\",\r\n  \"description\": \"A thorough cleaning of the entire house.\"\r\n \r\n}\r\n",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/cleaning-service/store",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"cleaning-service",
+												"store"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "368"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"170-60fYEn4Dr2Y+UPdq0xGBUWVRsIY\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 12:18:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": false,\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"msg\": \"BestFor must be an array with at least one value\",\n            \"path\": \"bestFor\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"msg\": \"Includes must be an array with at least one value\",\n            \"path\": \"includes\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"msg\": \"Invalid frequency\",\n            \"path\": \"frequency\",\n            \"location\": \"body\"\n        }\n    ],\n    \"message\": \"Validation error\",\n    \"data\": null\n}"
+								}
+							]
+						},
+						{
+							"name": "Cleaning Service Update",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n  \"name\": \"Deeper Cleaning\",\r\n  \"description\": \"A thorough cleaning of the entire house.\",\r\n  \"bestFor\": [\"Spring cleaning\", \"Before moving in\"],\r\n  \"includes\": [\"Kitchen cleaning\", \"Bathroom sanitization\", \"Floor scrubbing\"],\r\n  \"frequency\": \"One Time\",\r\n  \"price\": 5000\r\n}\r\n",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/cleaning-service/67d027f4e13a3684ee6c2293",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaning-service",
+										"67d027f4e13a3684ee6c2293"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Validation response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Johdn Doe\",\r\n    \"email\": \"joh3ds5n@example.com\",\r\n    \"mobile\": \"98734543210\",\r\n    \"password\": \"password123\",\r\n    \"status\": \"Active\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users/store",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"store"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "223"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"df-ySiUvF+M9nF9lApwTskN+QWGopE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 07 Mar 2025 10:36:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"joh3ds5n@example.com\",\n            \"msg\": \"Email already exist\",\n            \"path\": \"email\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": \"98734543210\",\n            \"msg\": \"Mobile already exist\",\n            \"path\": \"mobile\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"name\": \"Johdn Doe\",\r\n    \"email\": \"joh3ds5n@example.com\",\r\n    \"mobile\": \"9873454321\",\r\n    \"password\": \"password123\",\r\n    \"status\": \"Inactive\",\r\n    \"isDeleted\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users/67cacb8313192a05ef4fbcff",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"67cacb8313192a05ef4fbcff"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "318"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"13e-/htu8EJzBADvy319z2+za1SByJ4\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 09:15:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User updated successfully\",\n    \"user\": {\n        \"_id\": \"67cacb8313192a05ef4fbcff\",\n        \"name\": \"Johdn Doe\",\n        \"email\": \"joh3ds5n@example.com\",\n        \"mobile\": \"9873454321\",\n        \"password\": \"password123\",\n        \"status\": \"Inactive\",\n        \"isDeleted\": true,\n        \"deletedAt\": null,\n        \"createdAt\": \"2025-03-07T10:33:39.468Z\",\n        \"updatedAt\": \"2025-03-11T09:15:14.059Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Cleaning Service Status Change",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PUT",
+								"header": [],
+								"body": {
+									"mode": "raw",
+									"raw": "{\r\n    \"status\": \"Active\"\r\n}",
+									"options": {
+										"raw": {
+											"language": "json"
+										}
+									}
+								},
+								"url": {
+									"raw": "{{url}}/api/admin/cleaning-service/67d027f4e13a3684ee6c2293",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaning-service",
+										"67d027f4e13a3684ee6c2293"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Validation response",
+									"originalRequest": {
+										"method": "POST",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"name\": \"Johdn Doe\",\r\n    \"email\": \"joh3ds5n@example.com\",\r\n    \"mobile\": \"98734543210\",\r\n    \"password\": \"password123\",\r\n    \"status\": \"Active\"\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users/store",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"store"
+											]
+										}
+									},
+									"status": "Bad Request",
+									"code": 400,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "223"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"df-ySiUvF+M9nF9lApwTskN+QWGopE\""
+										},
+										{
+											"key": "Date",
+											"value": "Fri, 07 Mar 2025 10:36:31 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"errors\": [\n        {\n            \"type\": \"field\",\n            \"value\": \"joh3ds5n@example.com\",\n            \"msg\": \"Email already exist\",\n            \"path\": \"email\",\n            \"location\": \"body\"\n        },\n        {\n            \"type\": \"field\",\n            \"value\": \"98734543210\",\n            \"msg\": \"Mobile already exist\",\n            \"path\": \"mobile\",\n            \"location\": \"body\"\n        }\n    ]\n}"
+								},
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "PUT",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n   \"name\": \"Johdn Doe\",\r\n    \"email\": \"joh3ds5n@example.com\",\r\n    \"mobile\": \"9873454321\",\r\n    \"password\": \"password123\",\r\n    \"status\": \"Inactive\",\r\n    \"isDeleted\": true\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users/67cacb8313192a05ef4fbcff",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"67cacb8313192a05ef4fbcff"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "318"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"13e-/htu8EJzBADvy319z2+za1SByJ4\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 09:15:14 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User updated successfully\",\n    \"user\": {\n        \"_id\": \"67cacb8313192a05ef4fbcff\",\n        \"name\": \"Johdn Doe\",\n        \"email\": \"joh3ds5n@example.com\",\n        \"mobile\": \"9873454321\",\n        \"password\": \"password123\",\n        \"status\": \"Inactive\",\n        \"isDeleted\": true,\n        \"deletedAt\": null,\n        \"createdAt\": \"2025-03-07T10:33:39.468Z\",\n        \"updatedAt\": \"2025-03-11T09:15:14.059Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Cleaning Service View",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "GET",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/cleaning-service/67d027f4e13a3684ee6c2293",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaning-service",
+										"67d027f4e13a3684ee6c2293"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Permission denied due to token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"page\":1,\r\n    \"limit\":20\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "42"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2a-j0Fa6/tpvuMvoV3JxNgdUcszbpI\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 08:02:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": false,\n    \"message\": \"Access denied\"\n}"
+								},
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/admin/users/67caca8e13192a05ef4fbcf1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"67caca8e13192a05ef4fbcf1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "330"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14a-AMwJ17H3/v+a11iO4a+uBFzOBcw\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 08:59:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"_id\": \"67caca8e13192a05ef4fbcf1\",\n        \"name\": \"Johdn Doe\",\n        \"email\": \"johdsn@example.com\",\n        \"mobile\": \"98743543210\",\n        \"password\": \"password123\",\n        \"status\": \"Active\",\n        \"isDeleted\": false,\n        \"deletedAt\": null,\n        \"createdAt\": \"2025-03-07T10:29:34.386Z\",\n        \"updatedAt\": \"2025-03-07T10:29:34.386Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Cleaning Service Delete - Softdelete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "DELETE",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/cleaning-service/67d027f4e13a3684ee6c2293",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaning-service",
+										"67d027f4e13a3684ee6c2293"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Success response",
+									"originalRequest": {
+										"method": "DELETE",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/admin/users/67caca8e13192a05ef4fbcf1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"67caca8e13192a05ef4fbcf1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "330"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14a-JqxVkl5lHQMZxWpU4PHES0+ithk\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 09:16:33 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"message\": \"User soft deleted\",\n    \"user\": {\n        \"_id\": \"67caca8e13192a05ef4fbcf1\",\n        \"name\": \"Johdn Doe\",\n        \"email\": \"johdsin@example.com\",\n        \"mobile\": \"98743543210\",\n        \"password\": \"password123\",\n        \"status\": \"Active\",\n        \"isDeleted\": true,\n        \"deletedAt\": \"2025-03-11T09:16:33.665Z\",\n        \"createdAt\": \"2025-03-07T10:29:34.386Z\",\n        \"updatedAt\": \"2025-03-11T09:16:33.666Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						},
+						{
+							"name": "Restore Cleaning Service Delete - Softdelete",
+							"request": {
+								"auth": {
+									"type": "bearer",
+									"bearer": [
+										{
+											"key": "token",
+											"value": "{{token}}",
+											"type": "string"
+										}
+									]
+								},
+								"method": "PATCH",
+								"header": [],
+								"url": {
+									"raw": "{{url}}/api/admin/cleaning-service/67d027f4e13a3684ee6c2293/restore",
+									"host": [
+										"{{url}}"
+									],
+									"path": [
+										"api",
+										"admin",
+										"cleaning-service",
+										"67d027f4e13a3684ee6c2293",
+										"restore"
+									]
+								}
+							},
+							"response": [
+								{
+									"name": "Permission denied due to token",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"body": {
+											"mode": "raw",
+											"raw": "{\r\n    \"page\":1,\r\n    \"limit\":20\r\n}",
+											"options": {
+												"raw": {
+													"language": "json"
+												}
+											}
+										},
+										"url": {
+											"raw": "{{url}}/api/admin/users",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users"
+											]
+										}
+									},
+									"status": "Unauthorized",
+									"code": 401,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "42"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"2a-j0Fa6/tpvuMvoV3JxNgdUcszbpI\""
+										},
+										{
+											"key": "Date",
+											"value": "Wed, 05 Mar 2025 08:02:58 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": false,\n    \"message\": \"Access denied\"\n}"
+								},
+								{
+									"name": "Success Response",
+									"originalRequest": {
+										"method": "GET",
+										"header": [],
+										"url": {
+											"raw": "{{url}}/api/admin/users/67caca8e13192a05ef4fbcf1",
+											"host": [
+												"{{url}}"
+											],
+											"path": [
+												"api",
+												"admin",
+												"users",
+												"67caca8e13192a05ef4fbcf1"
+											]
+										}
+									},
+									"status": "OK",
+									"code": 200,
+									"_postman_previewlanguage": "json",
+									"header": [
+										{
+											"key": "X-Powered-By",
+											"value": "Express"
+										},
+										{
+											"key": "Content-Type",
+											"value": "application/json; charset=utf-8"
+										},
+										{
+											"key": "Content-Length",
+											"value": "330"
+										},
+										{
+											"key": "ETag",
+											"value": "W/\"14a-AMwJ17H3/v+a11iO4a+uBFzOBcw\""
+										},
+										{
+											"key": "Date",
+											"value": "Tue, 11 Mar 2025 08:59:08 GMT"
+										},
+										{
+											"key": "Connection",
+											"value": "keep-alive"
+										},
+										{
+											"key": "Keep-Alive",
+											"value": "timeout=5"
+										}
+									],
+									"cookie": [],
+									"body": "{\n    \"status\": true,\n    \"message\": \"User created successfully\",\n    \"data\": {\n        \"_id\": \"67caca8e13192a05ef4fbcf1\",\n        \"name\": \"Johdn Doe\",\n        \"email\": \"johdsn@example.com\",\n        \"mobile\": \"98743543210\",\n        \"password\": \"password123\",\n        \"status\": \"Active\",\n        \"isDeleted\": false,\n        \"deletedAt\": null,\n        \"createdAt\": \"2025-03-07T10:29:34.386Z\",\n        \"updatedAt\": \"2025-03-07T10:29:34.386Z\",\n        \"__v\": 0\n    }\n}"
+								}
+							]
+						}
+					]
+				},
+				{
+					"name": "Login",
+					"event": [
+						{
+							"listen": "test",
+							"script": {
+								"exec": [
+									"var jsonData = JSON.parse(responseBody);\r",
+									"postman.setEnvironmentVariable(\"token\",jsonData.data.token);"
+								],
+								"type": "text/javascript",
+								"packages": {}
+							}
+						}
+					],
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ritesh@gmail.com\",\r\n    \"password\":\"ritesh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/login",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"login"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Register",
+					"request": {
+						"method": "POST",
+						"header": [],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n    \"email\":\"ritesh@gmail.com\",\r\n    \"password\":\"ritesh\",\r\n    \"name\":\"Ritesh\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "{{url}}/api/admin/register",
+							"host": [
+								"{{url}}"
+							],
+							"path": [
+								"api",
+								"admin",
+								"register"
+							]
+						}
+					},
+					"response": []
+				}
+			]
+		}
+	]
+}
